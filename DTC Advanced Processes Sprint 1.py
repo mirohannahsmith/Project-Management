@@ -22,6 +22,9 @@ VALUES = [[1, 2, 3, 4, 5, 10], # Difficulty level 1
           [512, 672, 843, 932, 476, 1035], # Difficulty level 8
 ]
 
+# Define scoreboard for points variable
+points_score = 0
+
 def question_ask(number_1, number_2):
     """ Create function for asking questions.
         Takes:
@@ -38,6 +41,8 @@ def question_ask(number_1, number_2):
     correct_answer_sum = number_1 + number_2
     if correct_answer_sum == answer:
         print("Correct!")
+        points_score += 10
+        print(points_score)
         pass
     elif answer <= 0:
         print("That number is a negative, incorrect.")
