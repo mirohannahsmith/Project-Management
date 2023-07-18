@@ -45,6 +45,13 @@ def line_print(line_value):
     print("-" * line_value)
     return line_value
 
+def exit_code():
+    gaps_print(2)
+    line_print(40)
+    print("You have lost the game, sorry.")
+    line_print(40)
+    exit()
+    return exit()
 
 def question_ask(number_1, number_2):
     """ Create function for asking questions.
@@ -54,11 +61,14 @@ def question_ask(number_1, number_2):
         Returns:
             Question for user
     """
+    gaps_print(2)
+    line_print(17)
     try:
         answer = int(input("What is {} + {}? : ".format(number_1, number_2)))
     except ValueError:
         print("That's not a valid integer. Incorrect.")
-        pass
+        line_print(17)
+        exit_code()
     correct_answer_sum = number_1 + number_2
     if correct_answer_sum == answer:
         print("Correct!")
@@ -66,10 +76,15 @@ def question_ask(number_1, number_2):
         points_score += 10
         print(points_score)
         pass
+        line_print(17)
     elif answer <= 0:
         print("That number is a negative, incorrect.")
+        line_print(17)
+        exit_code()
     else:
         print("Incorrect.")
+        line_print(17)
+        exit_code()
 
 
 #Ask difficulty level one question
