@@ -21,9 +21,7 @@ VALUES = [[1, 2, 3, 4, 5, 10], # Difficulty level 1
           [171, 257, 387, 478, 272, 363], # Difficulty level 7
           [512, 672, 843, 932, 476, 1035], # Difficulty level 8
 ]
-global number_1
-global number_2
-global answer
+
 def question_ask(number_1, number_2):
     """ Create function for asking questions.
         Takes:
@@ -32,9 +30,19 @@ def question_ask(number_1, number_2):
         Returns:
             Question for user
     """
-    answer = int(input("What is {} + {}? : ".format(number_1, number_2)))
-    return answer
-
+    try:
+        answer = int(input("What is {} + {}? : ".format(number_1, number_2)))
+    except ValueError:
+        print("That's not a valid integer. Incorrect.")
+        pass
+    correct_answer_sum = number_1 + number_2
+    if correct_answer_sum == answer:
+        print("Correct!")
+        pass
+    elif answer <= 0:
+        print("That number is a negative, incorrect.")
+    else:
+        print("Incorrect.")
 
 
 #Ask difficulty level one question
@@ -60,9 +68,3 @@ question_ask(VALUES[6][randint(0, 5)], VALUES[6][randint(0, 5)])
 
 #Ask difficulty level eight question
 question_ask(VALUES[7][randint(0, 5)], VALUES[7][randint(0, 5)])
-
-def answer_check():
-    correct_answer_sum = number_1 + number_2
-    if correct_answer_sum == answer:
-        print("Hooligan")
-
