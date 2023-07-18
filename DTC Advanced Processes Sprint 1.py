@@ -21,7 +21,9 @@ VALUES = [[1, 2, 3, 4, 5, 10], # Difficulty level 1
           [171, 257, 387, 478, 272, 363], # Difficulty level 7
           [512, 672, 843, 932, 476, 1035], # Difficulty level 8
 ]
-
+global number_1
+global number_2
+global answer
 def question_ask(number_1, number_2):
     """ Create function for asking questions.
         Takes:
@@ -31,7 +33,8 @@ def question_ask(number_1, number_2):
             Question for user
     """
     answer = int(input("What is {} + {}? : ".format(number_1, number_2)))
-    return answer 
+    return answer
+
 
 
 #Ask difficulty level one question
@@ -57,4 +60,9 @@ question_ask(VALUES[6][randint(0, 5)], VALUES[6][randint(0, 5)])
 
 #Ask difficulty level eight question
 question_ask(VALUES[7][randint(0, 5)], VALUES[7][randint(0, 5)])
+
+def answer_check():
+    correct_answer_sum = number_1 + number_2
+    if correct_answer_sum == answer:
+        print("Hooligan")
 
