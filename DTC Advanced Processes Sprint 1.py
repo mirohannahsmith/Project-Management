@@ -41,6 +41,7 @@ def question_ask(number_1, number_2):
     correct_answer_sum = number_1 + number_2
     if correct_answer_sum == answer:
         print("Correct!")
+        global points_score
         points_score += 10
         print(points_score)
         pass
