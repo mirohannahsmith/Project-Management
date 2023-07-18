@@ -23,7 +23,24 @@ VALUES = [[1, 2, 3, 4, 5, 10], # Difficulty level 1
 ]
 
 # Define scoreboard for points variable
+global points_score
 points_score = 0
+
+
+# Define formatting functions
+
+def newline_print(space_amount):
+    print("""
+          """) * space_amount
+    return space_amount
+
+def line_print(line_value):
+    print("-") * line_value
+    return line_value
+
+line_print(5)
+newline_print(2)
+line_print(10)
 
 def question_ask(number_1, number_2):
     """ Create function for asking questions.
