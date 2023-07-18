@@ -29,17 +29,24 @@ points_score = 0
 
 # Define formatting functions
 
-def newline_print(space_amount):
-    print("""
-          """) * space_amount
-    return space_amount
+# Define function for printing gaps
+def gaps_print(gaps_number):
+    """This function prints new lines when needed;
+    Takes parameters of a number and prints that many.
+    """
+    for i in range(gaps_number):
+        print("")
+    return gaps_number
 
 def line_print(line_value):
-    print("-") * line_value
+    """This function prints lines needed for formatting;
+    Takes parameters of a number and prints that many lines.
+    """
+    print("-" * line_value)
     return line_value
 
 line_print(5)
-newline_print(2)
+gaps_print(2)
 line_print(10)
 
 def question_ask(number_1, number_2):
