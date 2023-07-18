@@ -45,9 +45,6 @@ def line_print(line_value):
     print("-" * line_value)
     return line_value
 
-line_print(5)
-gaps_print(2)
-line_print(10)
 
 def question_ask(number_1, number_2):
     """ Create function for asking questions.
