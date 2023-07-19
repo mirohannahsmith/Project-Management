@@ -3,9 +3,6 @@
 
 # Author: Miro
 
-
-# Sprint 1
-
 # Import random used for later
 from random import randint
 
@@ -26,7 +23,6 @@ VALUES = [[1, 2, 3, 4, 5, 10], # Difficulty level 1
 global points_score
 points_score = 0
 
-
 # Define formatting functions
 
 def gaps_print(gaps_number):
@@ -37,12 +33,14 @@ def gaps_print(gaps_number):
         print("")
     return gaps_number
 
+
 def line_print(line_value):
     """This function prints lines needed for formatting;
     Takes parameters of a number and prints that many lines.
     """
     print("-" * line_value)
     return line_value
+
 
 def exit_code():
     """This function is used for ending code;
@@ -53,7 +51,7 @@ def exit_code():
     print("You have lost the game, sorry.")
     line_print(40)
     exit()
-    return exit()
+
 
 def question_ask(number_1, number_2):
     """ Create function for asking questions.
@@ -81,7 +79,7 @@ def question_ask(number_1, number_2):
         points_score += 10
         print("Your score: {}".format(points_score))
         line_print(25)
-    elif answer <= 0:
+    elif answer < 0:
         gaps_print(1)
         print("That number is a negative, incorrect.")
         line_print(25)
@@ -92,6 +90,18 @@ def question_ask(number_1, number_2):
         line_print(25)
         exit_code()
 
+
+# Print welcome message for user
+line_print(30)
+print("Welcome to the Maths Game.")
+print("You will be asked a series of")
+print("maths questions, each question")
+print("harder than the one before it.")
+line_print(30)
+print("Get all 8 questions correct,")
+print("and you will win.")
+print("Yet if you get any wrong,")
+print("You will lose the game.")
 
 #Ask difficulty level one question
 question_ask(VALUES[0][randint(0, 5)], VALUES[0][randint(0, 5)])
