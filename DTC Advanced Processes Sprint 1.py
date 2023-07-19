@@ -29,7 +29,6 @@ points_score = 0
 
 # Define formatting functions
 
-# Define function for printing gaps
 def gaps_print(gaps_number):
     """This function prints new lines when needed;
     Takes parameters of a number and prints that many.
@@ -46,6 +45,9 @@ def line_print(line_value):
     return line_value
 
 def exit_code():
+    """This function is used for ending code;
+    Exits code when user gets answer incorrect.
+    """
     gaps_print(2)
     line_print(40)
     print("You have lost the game, sorry.")
@@ -61,29 +63,33 @@ def question_ask(number_1, number_2):
         Returns:
             Question for user
     """
-    gaps_print(2)
-    line_print(17)
+    gaps_print(1)
+    line_print(25)
     try:
         answer = int(input("What is {} + {}? : ".format(number_1, number_2)))
     except ValueError:
+        gaps_print(1)
         print("That's not a valid integer. Incorrect.")
-        line_print(17)
+        line_print(25)
         exit_code()
     correct_answer_sum = number_1 + number_2
     if correct_answer_sum == answer:
+        gaps_print(1)
         print("Correct!")
+        gaps_print(1)
         global points_score
         points_score += 10
-        print(points_score)
-        pass
-        line_print(17)
+        print("Your score: {}".format(points_score))
+        line_print(25)
     elif answer <= 0:
+        gaps_print(1)
         print("That number is a negative, incorrect.")
-        line_print(17)
+        line_print(25)
         exit_code()
     else:
+        gaps_print(1)
         print("Incorrect.")
-        line_print(17)
+        line_print(25)
         exit_code()
 
 
