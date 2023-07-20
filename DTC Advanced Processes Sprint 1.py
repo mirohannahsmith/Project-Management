@@ -101,7 +101,7 @@ line_print(30)
 print("Get all 8 questions correct,")
 print("and you will win.")
 print("Yet if you get any wrong,")
-print("You will lose the game.")
+print("you will lose the game.")
 
 #Ask difficulty level one question
 question_ask(VALUES[0][randint(0, 5)], VALUES[0][randint(0, 5)])
@@ -126,3 +126,14 @@ question_ask(VALUES[6][randint(0, 5)], VALUES[6][randint(0, 5)])
 
 #Ask difficulty level eight question
 question_ask(VALUES[7][randint(0, 5)], VALUES[7][randint(0, 5)])
+
+
+# Set variable for bonus points
+bonus_points = 10000
+
+# Print ending message for winners
+line_print(55)
+print("Congratulations, you have won the game!")
+print("Just for winning, you can have an extra {} points!".format(bonus_points))
+print("This brings your final total points to {}".format(points_score))
+line_print(55)
