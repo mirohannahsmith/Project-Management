@@ -72,13 +72,15 @@ def user_continue():
         if continue_answer == "Y":
             user_continue_loop = True
         elif continue_answer == "N":
-            line_print(20)
+            line_print(25)
             print("Your final score: {}".format(points_score))
-            print("Thank you for playing.")
-            line_print(20)
+            print("Thank you for playing!")
+            line_print(25)
             exit()
         else:
+            gaps_print(1)
             print("Please enter either 'Y' or 'N'.")
+            gaps_print(1)
 
 def question_ask(number_1, number_2):
     """ Create function for asking questions.
