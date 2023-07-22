@@ -52,13 +52,35 @@ def exit_code():
     line_print(40)
     exit()
 
+
 def user_continue():
     """This function is used for ending code;
     Exits code when user wishes to stick to points.
     """
-    print("You are now given the chance to continue,")
-    print("but only if you don't want to risk anything.")
-    continue_answer = input("Do you want to continue?")
+    line_print(60)
+    print("You are now given the chance to continue.")
+    print("If you do, you will double your points.")
+    print("If you fail, you'll lose the game and all points.")
+    print("You can leave now and end the game with your current points.")
+    gaps_print(1)
+    print("Enter Y to continue or N to end the game.")
+    gaps_print(1)
+    user_continue_loop = False
+    while user_continue_loop is not True:
+        continue_answer = input("Do you want to continue? : ")
+        if continue_answer == "Y" or "y":
+            user_continue_loop = True
+        elif continue_answer == "N" or "n":
+            line_print(20)
+            print("Your final score: {}".format(points_score))
+            print("Thank you for playing.")
+            line_print(20)
+            exit()
+        else:
+            print("Please enter either 'Y' or 'N'.")
+
+
+user_continue()
 
 def question_ask(number_1, number_2):
     """ Create function for asking questions.
