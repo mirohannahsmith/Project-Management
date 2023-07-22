@@ -52,6 +52,13 @@ def exit_code():
     line_print(40)
     exit()
 
+def user_continue():
+    """This function is used for ending code;
+    Exits code when user wishes to stick to points.
+    """
+    print("You are now given the chance to continue,")
+    print("but only if you don't want to risk anything.")
+    continue_answer = input("Do you want to continue?")
 
 def question_ask(number_1, number_2):
     """ Create function for asking questions.
@@ -130,8 +137,10 @@ question_ask(VALUES[7][randint(0, 5)], VALUES[7][randint(0, 5)])
 
 # Set variable for bonus points
 bonus_points = 10000
+points_score += bonus_points
 
 # Print ending message for winners
+gaps_print(1)
 line_print(55)
 print("Congratulations, you have won the game!")
 print("Just for winning, you can have an extra {} points!".format(bonus_points))
