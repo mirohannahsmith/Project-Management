@@ -57,6 +57,7 @@ def user_continue():
     """This function is used for ending code;
     Exits code when user wishes to stick to points.
     """
+    gaps_print(1)
     line_print(60)
     print("You are now given the chance to continue.")
     print("If you do, you will double your points.")
@@ -68,9 +69,9 @@ def user_continue():
     user_continue_loop = False
     while user_continue_loop is not True:
         continue_answer = input("Do you want to continue? : ")
-        if continue_answer == "Y" or "y":
+        if continue_answer == "Y":
             user_continue_loop = True
-        elif continue_answer == "N" or "n":
+        elif continue_answer == "N":
             line_print(20)
             print("Your final score: {}".format(points_score))
             print("Thank you for playing.")
@@ -78,9 +79,6 @@ def user_continue():
             exit()
         else:
             print("Please enter either 'Y' or 'N'.")
-
-
-user_continue()
 
 def question_ask(number_1, number_2):
     """ Create function for asking questions.
@@ -108,6 +106,7 @@ def question_ask(number_1, number_2):
         points_score += 10
         print("Your score: {}".format(points_score))
         line_print(25)
+        user_continue()
     elif answer < 0:
         gaps_print(1)
         print("That number is a negative, incorrect.")
