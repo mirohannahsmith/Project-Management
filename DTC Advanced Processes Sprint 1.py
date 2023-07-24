@@ -53,16 +53,23 @@ def exit_code():
     exit()
 
 
+# Variable makes message of continue instructions only print once
+repeat_continue_instructions = True
+
+
 def user_continue():
     """This function is used for ending code;
     Exits code when user wishes to stick to points.
     """
     gaps_print(1)
     line_print(60)
-    print("You are now given the chance to continue.")
-    print("If you do, you will double your points.")
-    print("If you fail, you'll lose the game and all points.")
-    print("You can leave now and end the game with your current points.")
+    global repeat_continue_instructions
+    if repeat_continue_instructions is True:
+        print("You are now given the chance to continue.")
+        print("If you do, you will double your points.")
+        print("If you fail, you'll lose the game and all points.")
+        print("You can leave now and end the game with your current points.")
+        repeat_continue_instructions = False
     gaps_print(1)
     print("Enter Y to continue or N to end the game.")
     gaps_print(1)
@@ -105,7 +112,10 @@ def question_ask(number_1, number_2):
         print("Correct!")
         gaps_print(1)
         global points_score
-        points_score += 10
+        if points_score == 0:
+            points_score += 10
+        else:
+            points_score *= 2
         print("Your score: {}".format(points_score))
         line_print(25)
         user_continue()
