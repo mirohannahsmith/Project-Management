@@ -25,6 +25,7 @@ points_score = 0
 
 # Define formatting functions
 
+# Define function for printing gaps
 def gaps_print(gaps_number):
     """This function prints new lines when needed;
     Takes parameters of a number and prints that many.
@@ -34,6 +35,7 @@ def gaps_print(gaps_number):
     return gaps_number
 
 
+# Define function for printing lines
 def line_print(line_value):
     """This function prints lines needed for formatting;
     Takes parameters of a number and prints that many lines.
@@ -42,6 +44,7 @@ def line_print(line_value):
     return line_value
 
 
+# Define function for exiting code when user loses.
 def exit_code():
     """This function is used for ending code;
     Exits code when user gets answer incorrect.
@@ -50,20 +53,25 @@ def exit_code():
     line_print(40)
     print("You have lost the game, sorry.")
     line_print(40)
+    # Exits code and ends the game
     exit()
 
 # Set variable for bonus points
-bonus_points = 10000
+BONUS_POINTS = 10000
 
 # Print ending message for winners
 def winning_message():
     gaps_print(1)
     global points_score
-    points_score += bonus_points
+    # Adds bonus points to points score
+    points_score += BONUS_POINTS
     print("Congratulations, you have won the game!")
-    print("Just for winning, you can have an extra {} points!".format(bonus_points))
+    # Prints bonus point amount
+    print("Just for winning, you can have an extra {} points!".format(BONUS_POINTS))
+    # Prints final score with bonus points
     print("This brings your final total points to {}".format(points_score))
     line_print(55)
+    # Exits code and ends the game
     exit()
 
 
@@ -81,10 +89,12 @@ def user_continue():
     """
     global continue_after_q8
     continue_after_q8 += 1
+    # After question 8 display the winning message instead of continuing
     if continue_after_q8 == 8:
         winning_message()
     gaps_print(1)
     global repeat_continue_instructions
+    # Displays instructions only once
     if repeat_continue_instructions is True:
         line_print(60)
         print("You are now given the chance to continue.")
@@ -93,60 +103,74 @@ def user_continue():
         print("You can leave now and end the game with your current points.")
         repeat_continue_instructions = False
     gaps_print(1)
+    # Gives user instructions on what to enter
     print("Enter Y to continue or N to end the game.")
     gaps_print(1)
+    # Set loop for asking user to continue
     user_continue_loop = False
     while user_continue_loop is not True:
+        # Ask user if they want to continue
         continue_answer = input("Do you want to continue? : ")
         continue_answer = continue_answer.lower()
+        # If user wants to continue, do so
         if continue_answer == "y":
             user_continue_loop = True
+        # If user doesn't want to continue, end game.
         elif continue_answer == "n":
             line_print(25)
+            # Display final score
             print("Your final score: {}".format(points_score))
             print("Thank you for playing!")
             line_print(25)
             exit()
         else:
+            # If user enters invalid, repeat question
             gaps_print(1)
             print("Please enter either 'Y' or 'N'.")
             gaps_print(1)
 
+
+# Define function used for asking the question
 def question_ask(number_1, number_2):
     """ Create function for asking questions.
         Takes:
             Two values from values 3d list
-        
-        Returns:
-            Question for user
     """
     gaps_print(1)
     line_print(25)
     try:
+        # Ask question, taking values as random numbers
         answer = int(input("What is {} + {}? : ".format(number_1, number_2)))
+    # If user enters a non-integer, automatic loss
     except ValueError:
         gaps_print(1)
         print("That's not a valid integer. Incorrect.")
         line_print(25)
         exit_code()
+    # Calculate correct answer
     correct_answer_sum = number_1 + number_2
     if correct_answer_sum == answer:
+        # If user is correct, continue
         gaps_print(1)
         print("Correct!")
         gaps_print(1)
         global points_score
+        # For first question, only give them 10 points
         if points_score == 0:
             points_score += 10
+        # Afterwards, double points
         else:
             points_score *= 2
         print("Your score: {}".format(points_score))
         line_print(25)
         user_continue()
+    # If user enters a negative, automatic loss
     elif answer < 0:
         gaps_print(1)
         print("That number is a negative, incorrect.")
         line_print(25)
         exit_code()
+    # If user enters the wrong answer, loss
     else:
         gaps_print(1)
         print("Incorrect.")
@@ -165,6 +189,8 @@ print("Get all 8 questions correct,")
 print("and you will win.")
 print("Yet if you get any wrong,")
 print("you will lose the game.")
+
+# Print questions that take random parameters from list
 
 #Ask difficulty level one question
 question_ask(VALUES[0][randint(0, 5)], VALUES[0][randint(0, 5)])
