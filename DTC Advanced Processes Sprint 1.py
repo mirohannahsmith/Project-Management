@@ -52,19 +52,41 @@ def exit_code():
     line_print(40)
     exit()
 
+# Set variable for bonus points
+bonus_points = 10000
+
+# Print ending message for winners
+def winning_message():
+    gaps_print(1)
+    global points_score
+    points_score += bonus_points
+    print("Congratulations, you have won the game!")
+    print("Just for winning, you can have an extra {} points!".format(bonus_points))
+    print("This brings your final total points to {}".format(points_score))
+    line_print(55)
+    exit()
+
 
 # Variable makes message of continue instructions only print once
 repeat_continue_instructions = True
+
+
+# Set variable which makes continue message not print after question 8
+continue_after_q8 = 0
 
 
 def user_continue():
     """This function is used for ending code;
     Exits code when user wishes to stick to points.
     """
+    global continue_after_q8
+    continue_after_q8 += 1
+    if continue_after_q8 == 8:
+        winning_message()
     gaps_print(1)
-    line_print(60)
     global repeat_continue_instructions
     if repeat_continue_instructions is True:
+        line_print(60)
         print("You are now given the chance to continue.")
         print("If you do, you will double your points.")
         print("If you fail, you'll lose the game and all points.")
@@ -76,9 +98,10 @@ def user_continue():
     user_continue_loop = False
     while user_continue_loop is not True:
         continue_answer = input("Do you want to continue? : ")
-        if continue_answer == "Y":
+        continue_answer = continue_answer.lower()
+        if continue_answer == "y":
             user_continue_loop = True
-        elif continue_answer == "N":
+        elif continue_answer == "n":
             line_print(25)
             print("Your final score: {}".format(points_score))
             print("Thank you for playing!")
@@ -166,16 +189,3 @@ question_ask(VALUES[6][randint(0, 5)], VALUES[6][randint(0, 5)])
 
 #Ask difficulty level eight question
 question_ask(VALUES[7][randint(0, 5)], VALUES[7][randint(0, 5)])
-
-
-# Set variable for bonus points
-bonus_points = 10000
-points_score += bonus_points
-
-# Print ending message for winners
-gaps_print(1)
-line_print(55)
-print("Congratulations, you have won the game!")
-print("Just for winning, you can have an extra {} points!".format(bonus_points))
-print("This brings your final total points to {}".format(points_score))
-line_print(55)
