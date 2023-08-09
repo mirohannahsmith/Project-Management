@@ -1,5 +1,5 @@
-##
-# Advanced Processes code 
+"""This file asks the user maths questions in a game."""
+# Advanced Processes code
 
 # Author: Miro
 
@@ -7,17 +7,16 @@
 from random import randint
 
 # Add 3d list full of integers for questions of varying difficulties
-# Each line has 6 numbers which will be randomly added together to make the questions
 # There are 10 difficulty levels, each getting harder than the last.
-VALUES = [[1, 2, 3, 4, 5, 10], # Difficulty level 1
-          [6, 7, 8, 9, 11, 12], # Difficulty level 2
-          [10, 20, 40, 60, 80, 100], # Difficulty level 3
-          [13, 14, 17, 21, 23, 25], # Difficulty level 4
-          [34, 46, 58, 41, 76, 88], # Difficulty level 5
-          [101, 134, 147, 176, 188, 231], # Difficulty level 6
-          [171, 257, 387, 478, 272, 363], # Difficulty level 7
-          [512, 672, 843, 932, 476, 1035], # Difficulty level 8
-]
+VALUES = [[1, 2, 3, 4, 5, 10],  # Difficulty level 1
+          [6, 7, 8, 9, 11, 12],  # Difficulty level 2
+          [10, 20, 40, 60, 80, 100],  # Difficulty level 3
+          [13, 14, 17, 21, 23, 25],  # Difficulty level 4
+          [34, 46, 58, 41, 76, 88],  # Difficulty level 5
+          [101, 134, 147, 176, 188, 231],  # Difficulty level 6
+          [171, 257, 387, 478, 272, 363],  # Difficulty level 7
+          [512, 672, 843, 932, 476, 1035],  # Difficulty level 8
+          ]
 
 # Define scoreboard for points variable
 global points_score
@@ -25,9 +24,11 @@ points_score = 0
 
 # Define formatting functions
 
+
 # Define function for printing gaps
 def gaps_print(gaps_number):
-    """This function prints new lines when needed;
+    """Prints new lines when needed.
+
     Takes parameters of a number and prints that many.
     """
     for i in range(gaps_number):
@@ -37,7 +38,8 @@ def gaps_print(gaps_number):
 
 # Define function for printing lines
 def line_print(line_value):
-    """This function prints lines needed for formatting;
+    """Prints lines needed for formatting.
+
     Takes parameters of a number and prints that many lines.
     """
     print("-" * line_value)
@@ -46,7 +48,8 @@ def line_print(line_value):
 
 # Define function for exiting code when user loses.
 def exit_code():
-    """This function is used for ending code;
+    """Used for ending code.
+
     Exits code when user gets answer incorrect.
     """
     gaps_print(2)
@@ -56,18 +59,21 @@ def exit_code():
     # Exits code and ends the game
     exit()
 
+
 # Set variable for bonus points
 BONUS_POINTS = 10000
 
+
 # Print ending message for winners
 def winning_message():
+    """Prints the message when the user wins."""
     gaps_print(1)
     global points_score
     # Adds bonus points to points score
     points_score += BONUS_POINTS
     print("Congratulations, you have won the game!")
     # Prints bonus point amount
-    print("Just for winning, you can have an extra {} points!".format(BONUS_POINTS))
+    print("You win an extra {} points!".format(BONUS_POINTS))
     # Prints final score with bonus points
     print("This brings your final total points to {}".format(points_score))
     line_print(55)
@@ -84,7 +90,8 @@ continue_after_q8 = 0
 
 
 def user_continue():
-    """This function is used for ending code;
+    """Used for ending code.
+
     Exits code when user wishes to stick to points.
     """
     global continue_after_q8
@@ -132,9 +139,10 @@ def user_continue():
 
 # Define function used for asking the question
 def question_ask(number_1, number_2):
-    """ Create function for asking questions.
-        Takes:
-            Two values from values 3d list
+    """Asks users the maths questions.
+
+    Takes:
+        Two values from values 3d list
     """
     gaps_print(1)
     line_print(25)
@@ -192,26 +200,26 @@ print("you will lose the game.")
 
 # Print questions that take random parameters from list
 
-#Ask difficulty level one question
+# Ask difficulty level one question
 question_ask(VALUES[0][randint(0, 5)], VALUES[0][randint(0, 5)])
 
-#Ask difficulty level two question
+# Ask difficulty level two question
 question_ask(VALUES[1][randint(0, 5)], VALUES[1][randint(0, 5)])
 
-#Ask difficulty level three question
+# Ask difficulty level three question
 question_ask(VALUES[2][randint(0, 5)], VALUES[2][randint(0, 5)])
 
-#Ask difficulty level four question
+# Ask difficulty level four question
 question_ask(VALUES[3][randint(0, 5)], VALUES[3][randint(0, 5)])
 
-#Ask difficulty level five question
+# Ask difficulty level five question
 question_ask(VALUES[4][randint(0, 5)], VALUES[4][randint(0, 5)])
 
-#Ask difficulty level six question
+# Ask difficulty level six question
 question_ask(VALUES[5][randint(0, 5)], VALUES[5][randint(0, 5)])
 
-#Ask difficulty level seven question
+# Ask difficulty level seven question
 question_ask(VALUES[6][randint(0, 5)], VALUES[6][randint(0, 5)])
 
-#Ask difficulty level eight question
+# Ask difficulty level eight question
 question_ask(VALUES[7][randint(0, 5)], VALUES[7][randint(0, 5)])
