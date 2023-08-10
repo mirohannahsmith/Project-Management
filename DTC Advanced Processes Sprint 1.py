@@ -27,7 +27,7 @@ points_score = 0
 
 # Define function for printing gaps
 def gaps_print(gaps_number):
-    """Prints new lines when needed.
+    """Print new lines when needed.
 
     Takes parameters of a number and prints that many.
     """
@@ -38,7 +38,7 @@ def gaps_print(gaps_number):
 
 # Define function for printing lines
 def line_print(line_value):
-    """Prints lines needed for formatting.
+    """Print lines needed for formatting.
 
     Takes parameters of a number and prints that many lines.
     """
@@ -48,7 +48,7 @@ def line_print(line_value):
 
 # Define function for exiting code when user loses.
 def exit_code():
-    """Used for ending code.
+    """End code.
 
     Exits code when user gets answer incorrect.
     """
@@ -66,7 +66,7 @@ BONUS_POINTS = 10000
 
 # Print ending message for winners
 def winning_message():
-    """Prints the message when the user wins."""
+    """Print the message when the user wins."""
     gaps_print(1)
     global points_score
     # Adds bonus points to points score
@@ -90,7 +90,7 @@ continue_after_q8 = 0
 
 
 def user_continue():
-    """Used for ending code.
+    """End code.
 
     Exits code when user wishes to stick to points.
     """
@@ -200,26 +200,11 @@ print("you will lose the game.")
 
 # Print questions that take random parameters from list
 
-# Ask difficulty level one question
-question_ask(VALUES[0][randint(0, 5)], VALUES[0][randint(0, 5)])
-
-# Ask difficulty level two question
-question_ask(VALUES[1][randint(0, 5)], VALUES[1][randint(0, 5)])
-
-# Ask difficulty level three question
-question_ask(VALUES[2][randint(0, 5)], VALUES[2][randint(0, 5)])
-
-# Ask difficulty level four question
-question_ask(VALUES[3][randint(0, 5)], VALUES[3][randint(0, 5)])
-
-# Ask difficulty level five question
-question_ask(VALUES[4][randint(0, 5)], VALUES[4][randint(0, 5)])
-
-# Ask difficulty level six question
-question_ask(VALUES[5][randint(0, 5)], VALUES[5][randint(0, 5)])
-
-# Ask difficulty level seven question
-question_ask(VALUES[6][randint(0, 5)], VALUES[6][randint(0, 5)])
-
-# Ask difficulty level eight question
-question_ask(VALUES[7][randint(0, 5)], VALUES[7][randint(0, 5)])
+# Set variable for changing difficulty level
+difficulty_swap = 0
+# Loop to go through all 8 difficulty levels
+for i in range(8):
+    question_ask(VALUES[difficulty_swap][randint(0, 5)],
+                 VALUES[difficulty_swap][randint(0, 5)])
+    # Changes difficulty level every loop
+    difficulty_swap += 1
